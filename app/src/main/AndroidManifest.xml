@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ConvIndex">
-
+        <activity
+            android:name=".CameraActivityForBlind"
+            android:exported="false" />
         <activity
             android:name=".CameraActivity"
             android:exported="false" />

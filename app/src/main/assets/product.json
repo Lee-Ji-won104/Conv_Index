@@ -1,0 +1,13 @@
+{ "product" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "AOA",
+      "price" : "50000",
+      "detail_info" : "2018.05.28",
+      "short_info" : "댄스",
+      "diet" :"BINGLE BANGLE",
+      "calories" :"BINGLE BANGLE"
+    }
+  ]
+}

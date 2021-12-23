@@ -2,11 +2,9 @@ package com.ijiwon.convindex;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.os.Environment;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -14,10 +12,7 @@ import android.widget.Toast;
 import com.camerakit.CameraKitView;
 import com.ijiwon.convindex.deeputils.Classifier;
 import com.ijiwon.convindex.deeputils.TensorFlowImageClassifier;
-import com.ijiwon.convindex.tools.FragmentDialog;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -61,8 +56,6 @@ public class CameraActivity extends AppCompatActivity {
 
                         if( afterPicture(results) != null ){
                             dialog_bitmap=Bitmap.createScaledBitmap(whatIsThis, 150, 150, false);
-                            FragmentDialog dialog = FragmentDialog.getInstance();                ///fragment dialog 불러오기
-                            dialog.show(getSupportFragmentManager(), "dialog");        //나중에 변동사항 공지때 띄우
 
                         }
                     }
