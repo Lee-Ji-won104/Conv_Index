@@ -19,10 +19,10 @@ import java.util.concurrent.Executors;
 
 public class CameraActivity extends AppCompatActivity {
 
-    private static final String MODEL_PATH = "mobilenet_quant_v1_224.tflite";
+    private static final String MODEL_PATH = "model.tflite";
     private static final boolean QUANT = true;
-    private static final String LABEL_PATH = "labels.txt";
-    private static final int INPUT_SIZE = 224;
+    private static final String LABEL_PATH = "class-names.txt";
+    private static final int INPUT_SIZE = 512;
 
     private Classifier classifier;
 
@@ -38,30 +38,23 @@ public class CameraActivity extends AppCompatActivity {
         setContentView(R.layout.activity_camera);
         cameraKitView=findViewById(R.id.camera);
 
-        Button buttonTensor = (Button) findViewById(R.id.buttonTensor) ;
-        buttonTensor.setOnClickListener(new Button.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                cameraKitView.captureImage(new CameraKitView.ImageCallback() {
-                    @Override
-                    public void onImage(CameraKitView cameraKitView, final byte[] capturedImage) {
+        Button buttonTensor = findViewById(R.id.buttonTensor);
+        buttonTensor.setOnClickListener(view -> cameraKitView.captureImage((cameraKitView, capturedImage) -> {
 
-                        Bitmap whatIsThis= byteArrayToBitmap(capturedImage);
+            Bitmap whatIsThis= byteArrayToBitmap(capturedImage);
 
-                        whatIsThis=Bitmap.createScaledBitmap(whatIsThis, INPUT_SIZE, INPUT_SIZE, false);
+            whatIsThis=Bitmap.createScaledBitmap(whatIsThis, INPUT_SIZE, INPUT_SIZE, false);
 
 
-                        final List<Classifier.Recognition> results = classifier.recognizeImage(whatIsThis);
-                        Toast.makeText(CameraActivity.this,results.toString(),Toast.LENGTH_SHORT).show();
+            final List<Classifier.Recognition> results = classifier.recognizeImage(whatIsThis);
 
-                        if( afterPicture(results) != null ){
-                            dialog_bitmap=Bitmap.createScaledBitmap(whatIsThis, 150, 150, false);
+            if( afterPicture(results) != null ){
+                Toast.makeText(CameraActivity.this,afterPicture(results).toString(),Toast.LENGTH_SHORT).show();
 
-                        }
-                    }
-                });
+                dialog_bitmap=Bitmap.createScaledBitmap(whatIsThis, 150, 150, false);
+
             }
-        });
+        }));
         //tensorflow init()
         initTensorFlowAndLoadModel();
     }

@@ -6,6 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".CameraActivityForBlind">
 
+    <View
+        android:id="@+id/gestureView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00FFFFFF"
+        android:orientation="vertical">
+    </View>
+
     <com.camerakit.CameraKitView
         android:id="@+id/cameraBlind"
         android:layout_width="match_parent"
@@ -18,12 +26,6 @@
         app:camera_permissions="camera"
         tools:ignore="MissingConstraints" />
 
-    <View
-        android:id="@+id/gestureView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#00FFFFFF"
-        android:orientation="vertical">
-    </View>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

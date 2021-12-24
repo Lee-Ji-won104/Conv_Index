@@ -26,8 +26,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        //use thread
-        ArrayList<ProductClass> a= getProductList();
 
 
         Button button1 = (Button) findViewById(R.id.button) ;
@@ -39,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        /*
         Button button2 = (Button) findViewById(R.id.button2) ;
         button2.setOnClickListener(new Button.OnClickListener() {
             @Override
@@ -47,35 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
-
-    public ArrayList<ProductClass> getProductList() {
-        ArrayList<ProductClass> list_product = new ArrayList<>();
-        Gson gson = new Gson();
-
-        try {
-            InputStream is = getAssets().open("product.json");
-            byte[] buffer = new byte[is.available()];
-            is.read(buffer);
-            is.close();
-            String json = new String(buffer, "UTF-8");
-
-            JSONObject jsonObject = new JSONObject(json);
-            JSONArray jsonArray = jsonObject.getJSONArray("product");
-
-            int index = 0;
-            while (index < jsonArray.length()) {
-                ProductClass productInfo = gson.fromJson(jsonArray.get(index).toString(), ProductClass.class);
-                list_product.add(productInfo);
-
-                index++;
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return list_product;
+        */
     }
 
 }

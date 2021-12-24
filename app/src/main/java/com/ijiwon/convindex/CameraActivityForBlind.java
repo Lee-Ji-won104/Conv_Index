@@ -10,16 +10,24 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.camerakit.CameraKitView;
+import com.google.gson.Gson;
 import com.ijiwon.convindex.deeputils.Classifier;
 import com.ijiwon.convindex.deeputils.TensorFlowImageClassifier;
 import com.ijiwon.convindex.tools.OnSwipeTouchListener;
+import com.ijiwon.convindex.tools.ProductClass;
 import com.ijiwon.convindex.tools.ShakeDetector;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.Executor;
@@ -27,10 +35,10 @@ import java.util.concurrent.Executors;
 
 public class CameraActivityForBlind extends AppCompatActivity {
 
-    private static final String MODEL_PATH = "mobilenet_quant_v1_224.tflite";
-    private static final boolean QUANT = true;
-    private static final String LABEL_PATH = "labels.txt";
-    private static final int INPUT_SIZE = 224;
+    private static final String MODEL_PATH = "model.tflite";
+    private static final boolean QUANT = false;
+    private static final String LABEL_PATH = "class-names.txt";
+    private static final int INPUT_SIZE = 512;
 
     private Classifier classifier;
 
@@ -52,6 +60,9 @@ public class CameraActivityForBlind extends AppCompatActivity {
 
     //for cursor
     private boolean selectBoolean=false;
+
+    //제스쳐 모듈
+    GestureDetector detector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -234,6 +245,13 @@ public class CameraActivityForBlind extends AppCompatActivity {
         for (Classifier.Recognition result:results){
             if(result.getConfidence()>maxFloat){
                 maxResult= result;
+
+                //json에서 사물찾기
+                if(getProductList(maxResult.getTitle())!=null){
+                    //어떻게 할지 적어놓자
+                }
+
+                //ArrayList<ProductClass> a= ;
             }
         }
         dialog_result=maxResult;
@@ -241,10 +259,6 @@ public class CameraActivityForBlind extends AppCompatActivity {
         return maxResult;
     }
 
-    private void makeResultBitmap(Classifier.Recognition result, Bitmap bitmap){
-
-
-    }
     private void initTensorFlowAndLoadModel() {
         executor.execute(new Runnable() {
             @Override
@@ -267,5 +281,37 @@ public class CameraActivityForBlind extends AppCompatActivity {
         return BitmapFactory.decodeByteArray( $byteArray, 0, $byteArray.length );
     }
 
+
+    /**
+
+     **/
+    public ArrayList<ProductClass> getProductList( String productName) {
+        ArrayList<ProductClass> list_product = new ArrayList<>();
+        Gson gson = new Gson();
+
+        try {
+            InputStream is = getAssets().open("product.json");
+            byte[] buffer = new byte[is.available()];
+            is.read(buffer);
+            is.close();
+            String json = new String(buffer, "UTF-8");
+
+            JSONObject jsonObject = new JSONObject(json);
+            JSONArray jsonArray = jsonObject.getJSONArray(productName);
+
+            int index = 0;
+            while (index < jsonArray.length()) {
+                ProductClass productInfo = gson.fromJson(jsonArray.get(index).toString(), ProductClass.class);
+                list_product.add(productInfo);
+
+                index++;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return list_product;
+    }
 
 }
