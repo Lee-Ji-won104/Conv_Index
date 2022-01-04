@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/bottom_sheet_layout"
     android:layout_width="match_parent"
     android:layout_height="400dp"
@@ -8,7 +9,7 @@
     android:background="@drawable/bottom_sheet_bg"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:padding="8dp"
+
     app:behavior_hideable="true"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
@@ -34,25 +35,57 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/Index"
+        <TextView
+            android:id="@+id/nothing6"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="left"
-            android:text="편의점 도"
-            android:layout_marginTop="10dp"/>
+            android:backgroundTint="@color/white"
+            android:layout_marginTop="10dp"
+            tools:ignore="RtlCompat,RtlHardcoded" />
 
+        <Button
+            android:id="@+id/Index"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="left"
+            android:text="편의점 도감"
+            android:textAlignment="center"
+            android:layout_marginTop="10dp"
+            tools:ignore="RtlCompat,RtlHardcoded"/>
+
+        <TextView
+            android:id="@+id/nothing5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:backgroundTint="@color/white"
+            android:layout_marginTop="10dp"
+            tools:ignore="RtlCompat,RtlHardcoded" />
 
         <Button
             android:id="@+id/Cart"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:layout_marginTop="10dp"
             android:gravity="right"
+            android:textAlignment="center"
             android:text="장바구니"
-            android:textColor="@android:color/black" />
+            tools:ignore="RtlCompat,RtlHardcoded"/>
+
+        <TextView
+            android:id="@+id/nothing4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:backgroundTint="@color/white"
+            android:layout_marginTop="10dp"
+            tools:ignore="RtlCompat,RtlHardcoded" />
     </LinearLayout>
 
 
@@ -61,26 +94,57 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/Recommend"
+        <TextView
+            android:id="@+id/nothing1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="left"
-            android:text="추천 메뉴"
-            android:layout_marginTop="10dp"/>
+            android:backgroundTint="@color/white"
+            android:layout_marginTop="10dp"
+            tools:ignore="RtlCompat,RtlHardcoded" />
 
+        <Button
+            android:id="@+id/Recommend"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="left"
+            android:text="추천 메뉴"
+            android:textAlignment="center"
+            android:layout_marginTop="10dp"
+            tools:ignore="RtlCompat,RtlHardcoded" />
+
+        <TextView
+            android:id="@+id/nothing2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:backgroundTint="@color/white"
+            android:layout_marginTop="10dp"
+            tools:ignore="RtlCompat,RtlHardcoded" />
 
         <Button
             android:id="@+id/Setting"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:layout_marginTop="10dp"
             android:gravity="right"
+            android:textAlignment="center"
             android:text="설정"
-            android:textColor="@android:color/black" />
+            tools:ignore="RtlCompat,RtlHardcoded"/>
 
+        <TextView
+            android:id="@+id/nothing3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:backgroundTint="@color/white"
+            android:layout_marginTop="10dp"
+            tools:ignore="RtlCompat,RtlHardcoded" />
     </LinearLayout>
 
 
