@@ -9,7 +9,6 @@ import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -27,10 +26,10 @@ import java.util.concurrent.Executors;
 
 public class CameraActivityForBlind extends AppCompatActivity {
 
-    private static final String MODEL_PATH = "mobilenet_quant_v1_224.tflite";
+    private static final String MODEL_PATH = "model.tflite";
     private static final boolean QUANT = true;
     private static final String LABEL_PATH = "labels.txt";
-    private static final int INPUT_SIZE = 224;
+    private static final int INPUT_SIZE = 300;
 
     private Classifier classifier;
 
@@ -182,11 +181,11 @@ public class CameraActivityForBlind extends AppCompatActivity {
 
                     if (ttsLang == TextToSpeech.LANG_MISSING_DATA
                             || ttsLang == TextToSpeech.LANG_NOT_SUPPORTED) {
-                        Log.e("TTS", "The Language is not supported!");
+                        //Log.e("TTS", "The Language is not supported!");
                     } else {
-                        Log.i("TTS", "Language Supported.");
+                        //Log.i("TTS", "Language Supported.");
                     }
-                    Log.i("TTS", "Initialization success.");
+                    //Log.i("TTS", "Initialization success.");
                 } else {
                     Toast.makeText(getApplicationContext(), "TTS Initialization failed!", Toast.LENGTH_SHORT).show();
                 }

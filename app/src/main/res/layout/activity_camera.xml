@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CameraActivity"
-    tools:ignore="ExtraText">
+    tools:ignore="ExtraText"
+    android:orientation="horizontal">
 
     <com.camerakit.CameraKitView
         android:id="@+id/camera"
@@ -13,7 +14,6 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:keepScreenOn="true"
-        app:camera_flash="auto"
         app:camera_facing="back"
         app:camera_focus="continuous"
         app:camera_permissions="camera"
@@ -25,6 +25,19 @@
         android:layout_height="wrap_content"
         android:text="Button"
         tools:layout_editor_absoluteX="88dp"
-        tools:layout_editor_absoluteY="155dp" />
+        tools:layout_editor_absoluteY="155dp"
+        tools:ignore="MissingConstraints" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
+
+    <include
+        android:id="@+id/bottom_sheet_layout"
+        layout="@layout/tfe_od_layout_bottom_sheet" />
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

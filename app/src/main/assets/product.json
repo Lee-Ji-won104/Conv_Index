@@ -1,13 +1,645 @@
-{ "product" :
+{
+
+  "beer_berni" :
   [
     {
       "image" : "BINGLE BANGLE",
-      "name" : "AOA",
-      "price" : "50000",
-      "detail_info" : "2018.05.28",
-      "short_info" : "댄스",
-      "diet" :"BINGLE BANGLE",
-      "calories" :"BINGLE BANGLE"
+      "name" : "버니니 스파클",
+      "price" : "3500",
+      "detail_info" : "스파클링 그레이프 와인이라는 이름에 걸맞게 와인의 풍미와 탄산의 청량감이 강조되었고, 달콤한 첫 맛과 깔끔한 목넘김이 매우 인상적이다.",
+      "short_info" : "wine",
+      "diet" :"하",
+      "calories" :"350kcal"
+    }
+  ],
+
+  "beer_blanc" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "블랑 맥주",
+      "price" : "3500",
+      "detail_info" : "낭만과 여유를 담은 프랑스 맥주, 상큼한 오렌지향을 품은 밀맥주, 취함보다는 분위기를 업시키는데 매우 적절한 맛",
+      "short_info" : "beer",
+      "diet" :"하",
+      "calories" :"350kcal"
+    }
+  ],
+
+  "beer_bud" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "버드와이저 맥주",
+      "price" : "3500",
+      "detail_info" : "맛을 보자면 그야말로 톡 쏘는 맛으로 가득한 라거. 고백하건대 카스보다는 낫지만 탄산기가 너무 강해서 그 이상의 칭찬을 표하기가 뭐하다.",
+      "short_info" : "beer",
+      "diet" :"하",
+      "calories" :"350kcal"
+    }
+  ],
+
+  "beer_cass_fresh" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "카스 프레쉬 맥주",
+      "price" : "3500",
+      "detail_info" : "황금빛 맥주. 탄산은 중상 정도로 시원하게 벌컥벌컥 마시기엔 좋다. 향은 강하지 않고, 맛은 살짝 고소하다가 끝에가서 찝찝한 맛이 좀 남는 정도이다.",
+      "short_info" : "beer",
+      "diet" :"하",
+      "calories" :"350kcal"
+    }
+  ],
+
+  "beer_cloud_original" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "클라우드 오리지널 맥주",
+      "price" : "3500",
+      "detail_info" : "지나치게 가볍지 않고 고소한 곡물의 맛과 쌉싸름하고 살짝 단맛이 있어서 깊은 맛이 난다.",
+      "short_info" : "beer",
+      "diet" :"하",
+      "calories" :"350kcal"
+    }
+  ],
+
+  "beer_filgood_7" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "필굿 7% 맥주",
+      "price" : "3500",
+      "detail_info" : "발포주기 때문에 거품이 부족하지만, 아로마 호프가 들어가서 맛도 풍미도 아주 좋다.",
+      "short_info" : "beer",
+      "diet" :"하",
+      "calories" :"350kcal"
+    }
+  ],
+
+  "beer_filgood_original" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "필굿 오리지널 맥주",
+      "price" : "3500",
+      "detail_info" : "밝은 황금색을 띈 발포주. 아로마향과 적당한 탄산으로 부드럽게 마실 수 있다.",
+      "short_info" : "beer",
+      "diet" :"하",
+      "calories" :"350kcal"
+    }
+  ],
+  "beer_filite_original" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "필라이트 오리지널 맥주",
+      "price" : "3500",
+      "detail_info" : "맥아의 함량이 적은 발포주라 가벼운 맛이 나지만, 가격이 저렴한 편이 강력한 장점이다.",
+      "short_info" : "beer",
+      "diet" :"하",
+      "calories" :"350kcal"
+    }
+  ],
+
+  "beer_heineken" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "하이네켄 맥주",
+      "price" : "3500",
+      "detail_info" : "엷은 황금색을 띄며, 달달한 향과 맛을 느낄 수 있다. 치킨과 같은 튀김류 또는 초밥과 잘 어울린다.",
+      "short_info" : "beer",
+      "diet" :"하",
+      "calories" :"350kcal"
+    }
+  ],
+
+  "beer_terra" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "테라 맥주",
+      "price" : "3500",
+      "detail_info" : "탄산도 쎄며, 쓴맛과 알콜향이 적당한 전형적인 한국 맥주이다. ",
+      "short_info" : "beer",
+      "diet" :"하",
+      "calories" :"350kcal"
+    }
+  ],
+
+  "beer_tsingtao" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "칭따오 맥주",
+      "price" : "3500",
+      "detail_info" : "첫맛은 고소하고, 향긋하며 끝맛은 찡하며 쌉싸름한 느낌이 길게 느껴진다.",
+      "short_info" : "beer",
+      "diet" :"하",
+      "calories" :"350kcal"
+    }
+  ],
+
+  "can_2per" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "2프로 부족할때 캔",
+      "price" : "3500",
+      "detail_info" : "복숭아향이 강하게 나는 투명한 음료수이다.",
+      "short_info" : "peach_juice",
+      "diet" :"하",
+      "calories" :"350kcal"
+    }
+  ],
+  "can_chilsung" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "칠성 사이다 캔",
+      "price" : "3500",
+      "detail_info" : "투명해서 깨끗한 느낌을 준다. 달달한데 톡 쏘는 탄산까지 느끼니 청량감에 더욱 애착이 가는 사이다.",
+      "short_info" : "soda",
+      "diet" :"하",
+      "calories" :"350kcal"
+    }
+  ],
+
+  "can_coca_zero" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "코카콜라 제로 캔",
+      "price" : "3500",
+      "detail_info" : "생김새는 코카콜라와는 비슷하지만, 맛은 확연히 차이가 난다. 슈크랄로스의 함유로 먹자마자 단맛은 강하게 올라오는데, 뒷맛은 멍하다.",
+      "short_info" : "soda_zero",
+      "diet" :"하",
+      "calories" :"0"
+    }
+  ],
+
+  "can_demi_apple" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "데미소다 애플 캔",
+      "price" : "3500",
+      "detail_info" : "상큼하고 산뜻한 청사괴의 향, 부드러운 단맛과 탄산, 잘 익은 사과의 맛, 가벽고 개운하게 마실 수 있는 사과과즙 탄산음료이다.",
+      "short_info" : "soda",
+      "diet" :"하",
+      "calories" :"350kcal"
+    }
+  ],
+
+  "can_demi_lemon" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "데미소다 레몬 캔",
+      "price" : "3500",
+      "detail_info" : "레몬 탄산음료의 정석. 과하게 시지도 않고, 달지도 않은 맛이다. 꾸준히 사랑받는 음료수.",
+      "short_info" : "soda",
+      "diet" :"하",
+      "calories" :"350kcal"
+    }
+  ],
+
+  "can_fanta_orange" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "환타 오렌지 캔",
+      "price" : "3500",
+      "detail_info" : "독특한 합성 오렌지의 향이 난다. 누가 맡아도 가짜 오렌지 향인 환타의 향은 참 독특하면서도 매력이 있는 향이다. 오렌지의 맛은 전혀 나지 않지만 아주 약한 신맛과 강렬한 단맛, 강렬한 탄산이 개운한 청량감을 준다. ",
+      "short_info" : "soda",
+      "diet" :"하",
+      "calories" :"350kcal"
+    }
+  ],
+
+  "can_gatorade" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "게토레이 레몬 캔",
+      "price" : "3500",
+      "detail_info" : "3대 이온음료에 속하는 레몬향 이온음료. 물보다 빠르게 흡수된다고하며, 운동 후 마시면 제일 좋다!",
+      "short_info" : "ion_drink",
+      "diet" :"하",
+      "calories" :"350kcal"
+    }
+  ],
+
+  "can_mac_col" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "맥콜 캔",
+      "price" : "3500",
+      "detail_info" : "고소한 보리를 시작으로 상큼한 향과 맛으로 입안을 개운하게 해준다.",
+      "short_info" : "soda",
+      "diet" :"하",
+      "calories" :"350kcal"
+    }
+  ],
+
+  "can_milkis" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "밀키스 캔",
+      "price" : "3500",
+      "detail_info" : "반투명한 요구르트 향의 탄산음료. 목넘김이 부드럽고, 호불호가 잘 갈리지 않는다.",
+      "short_info" : "soda",
+      "diet" :"하",
+      "calories" :"350kcal"
+    }
+  ],
+
+  "can_mountdew" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "마운틴 듀 캔",
+      "price" : "3500",
+      "detail_info" : "부드럽게 올라오는 탄산은 약하다는 인상을 주었고 레몬의 상큼한 맛과 라임의 신맛과 같은 맛이 난다. 생각한 것과는 다르게 달지 않으면서 상쾌하고 깔끔한 맛.",
+      "short_info" : "soda",
+      "diet" :"하",
+      "calories" :"350kcal"
+    }
+  ],
+
+  "can_pearjuice" :
+  [
+
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "갈아만든 배",
+      "price" : "3500",
+      "detail_info" : "알로에 음료처럼 배 알갱이가 들어있다. 일반적으로 줄여서 갈배라고 부른다. 음료수이지만, 불고기 양념을 할 때도 사용할 수 있다!",
+      "short_info" : "pear_juice",
+      "diet" :"하",
+      "calories" :"350kcal"
+    }
+  ],
+
+  "can_pocari" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "포카리스웨트 캔",
+      "price" : "3500",
+      "detail_info" : "다른 이온음료에는 잘 들어가지 않는 L-글루타민산나트륨, 즉 MSG가 들어 있어서 묘한 감칠맛이 난다. 일본에도 똑같이 들어가며 성분표에는 조미료(아미노산)로 표기되어 있다. 그 외 첨가물로는 자몽(그레이프후르츠) 과즙도 소량 함유",
+      "short_info" : "ion_drink",
+      "diet" :"하",
+      "calories" :"350kcal"
+    }
+  ],
+  "can_sprite" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "스프라이트 캔",
+      "price" : "3500",
+      "detail_info" : "맛있는 맥주",
+      "short_info" : "soda",
+      "diet" :"하",
+      "calories" :"350kcal"
+    }
+  ],
+  "can_powerade" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "파웨에이드 캔",
+      "price" : "3500",
+      "detail_info" : "맛있는 맥주",
+      "short_info" : "ion_drink",
+      "diet" :"하",
+      "calories" :"350kcal"
+    }
+  ],
+
+  "can_toreta" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "토레타 캔",
+      "price" : "3500",
+      "detail_info" : "맛있는 맥주",
+      "short_info" : "ion_drink",
+      "diet" :"하",
+      "calories" :"350kcal"
+    }
+  ],
+
+  "juice_capri-sun_orange" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "카프리 썬 오렌지",
+      "price" : "3500",
+      "detail_info" : "맛있는 맥주",
+      "short_info" : "orange_juice",
+      "diet" :"하",
+      "calories" :"350kcal"
+    }
+  ],
+
+  "milk_banana" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "바나나 우유",
+      "price" : "3500",
+      "detail_info" : "맛있는 맥주",
+      "short_info" : "banana_milk",
+      "diet" :"하",
+      "calories" :"350kcal"
+    }
+  ],
+  "milk_banana_lite" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "바나나 우유 라이트",
+      "price" : "3500",
+      "detail_info" : "맛있는 맥주",
+      "short_info" : "banana_milk",
+      "diet" :"하",
+      "calories" :"350kcal"
+    }
+  ],
+  "milk_chocochoco" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "덴마크 초코초코 우유",
+      "price" : "3500",
+      "detail_info" : "맛있는 맥주",
+      "short_info" : "choco_milk",
+      "diet" :"하",
+      "calories" :"350kcal"
+    }
+  ],
+  "milk_coffeecoffee" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "덴마크 커피커피 우유",
+      "price" : "3500",
+      "detail_info" : "맛있는 맥주",
+      "short_info" : "coffee_milk",
+      "diet" :"하",
+      "calories" :"350kcal"
+    }
+  ],
+  "milk_deliciousmilk_300" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "맛있는 우유 GT",
+      "price" : "3500",
+      "detail_info" : "맛있는 맥주",
+      "short_info" : "milk",
+      "diet" :"하",
+      "calories" :"350kcal"
+    }
+  ],
+
+  "soju_drop_fresh" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "참이슬 후레쉬",
+      "price" : "3500",
+      "detail_info" : "대한민국을 대표하는 기본적인 소주.",
+      "short_info" : "soju",
+      "diet" :"하",
+      "calories" :"350kcal"
+    }
+  ],
+
+  "soju_drop_jamong" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "자몽에 이슬",
+      "price" : "3500",
+      "detail_info" : "자몽맛이 나는 소주. 굉장히 달며, 먹기는 좋지만, 많이 마시면 다음 날 숙취로 고생할 수 있다.",
+      "short_info" : "soju",
+      "diet" :"하",
+      "calories" :"350kcal"
+    }
+  ],
+
+  "soju_drop_original" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "참이슬 오리지널",
+      "price" : "3500",
+      "detail_info" : "참이슬의 오리지널. 도수가 후레쉬보다 높으며, 젊은 사람들은 기피하는 것으로 알려져 있다.",
+      "short_info" : "soju",
+      "diet" :"하",
+      "calories" :"350kcal"
+    }
+  ],
+
+  "soju_goodday_blueberry" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "좋은데이 블루베리",
+      "price" : "3500",
+      "detail_info" : "블루베리 향이 나는 소주. 특유의 소주의 쓴 맛을 싫어하는 분들에게 강력 추천!",
+      "short_info" : "soju",
+      "diet" :"하",
+      "calories" :"350kcal"
+    }
+  ],
+
+  "soju_jinro" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "진로 소주",
+      "price" : "3500",
+      "detail_info" : "예전에 사라졌던 진로 소주. 이것만 마시는 사람들이 있을 정도로 강력한 매니아 층이 형성되어 있다.",
+      "short_info" : "soju",
+      "diet" :"하",
+      "calories" :"350kcal"
+    }
+  ],
+  "soju_likefirst" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "처음처럼운 순한",
+      "price" : "3500",
+      "detail_info" : "롯데주류에서 생산한 야심차게 준비한 희석식 소주. 순한 맛이 일품이다.",
+      "short_info" : "soju",
+      "diet" :"하",
+      "calories" :"350kcal"
+    }
+  ],
+  "soju_likefirst_soft" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "처음처럼 부드러운",
+      "price" : "3500",
+      "detail_info" : "롯데주류에서 생산한 야심차게 준비한 희석식 소주. 목넘김이 아주 부드럽다.",
+      "short_info" : "soju",
+      "diet" :"하",
+      "calories" :"350kcal"
+    }
+  ],
+  "soju_maehwa" :
+  [
+
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "매화수",
+      "price" : "3500",
+      "detail_info" : "매실주의 새콤달콤한 맛을 강조한 것이 특징이다. 진로 소주가 납품되고 있는 식당이라면 이 제품도 같이 찾아 볼 수 있다. 특히 달고 목넘김이 좋기 때문에 좋다고 퍼마시다 일어나는 순간 휘청하고 마는 앉은뱅이 술의 차세대 주자. 게다가 제조 공법상 매취순 및 다른 리큐르와 달리 숙성 기간을 거의 거치지 않기 때문에 숙취가 심하다고 알려져 있었다. 현재 주정의 비율을 줄이고 나머지를 와인으로 대체함으로써 이전보다 숙취가 상당히 줄어들어 누구나 부담 없이 즐길 수 있는 가벼운 술이 되었다정말?고는 하지만 여전히 숙취로는 대포, 청하, 매화수 삼두마차를 이끄는 말 중 하나다(...). 특히 낮은 도수[3] 덕분에 소주와 함께 섞어 먹는 방법이 애용되는데, 소주를 아래에 두고 매화수를 그 뒤에 올려서 입구를 포개두면 술이 알아서 섞이게 된다. 흔히 링거 꽂는다고도 표현. 물론 이 방법은 다음 날 극심한 두통을 동반한 숙취에 시달릴 확률이 매우 높으니 알아서 주의할 것.",
+      "short_info" : "soju",
+      "diet" :"중",
+      "calories" :"250"
+    }
+  ],
+
+  "viyott_chococrispy" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "비요뜨 초코 크리스피",
+      "price" : "3500",
+      "detail_info" : " 비요뜨 초코 크리스피 맛 ",
+      "short_info" : "viyott",
+      "diet" :"중",
+      "calories" :"350kcal"
+    }
+  ],
+
+  "viyott_cookiecream" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "비요뜨 쿠키크림",
+      "price" : "3500",
+      "detail_info" : "비요뜨 쿠키 크림 맛",
+      "short_info" : "viyott",
+      "diet" :"중",
+      "calories" :"350kcal"
+    }
+  ],
+
+  "viyott_crunch" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "비요뜨 크런치",
+      "price" : "3500",
+      "detail_info" : "비요뜨 초코 크런치 맛",
+      "short_info" : "viyott",
+      "diet" :"중",
+      "calories" :"350kcal"
+    }
+  ],
+
+  "milk_seoul_mintchoco" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "서울우유 민트초코라떼",
+      "price" : "3500",
+      "detail_info" : "비요뜨 초코 크런치 맛",
+      "short_info" : "mint_milk",
+      "diet" :"중",
+      "calories" :"350kcal"
+    }
+  ],
+
+  "milk_seoul_choco" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "서울우유 초콜릿",
+      "price" : "3500",
+      "detail_info" : "진하지 않은 적당한 초코 우유를 좋아하는 사람에게 적극 추천!",
+      "short_info" : "choco_milk",
+      "diet" :"중",
+      "calories" :"205"
+    }
+  ],
+
+  "milk_seoul_300" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "서울우유 300밀리",
+      "price" : "3500",
+      "detail_info" : "대한민국에서 제일 인기있는 우유. 하지만, 가격이 비싼게 흠이다.",
+      "short_info" : "milk",
+      "diet" :"중",
+      "calories" :"350kcal"
+    }
+  ],
+
+  "milk_mintlatte" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "덴마크 민트라떼",
+      "price" : "3500",
+      "detail_info" : "처음에 시원한 민트향이 느껴지고 추후 커피맛이 입안을 가득해운다.",
+      "short_info" : "mint_milk",
+      "diet" :"중",
+      "calories" :"205"
+    }
+  ],
+
+  "milk_mintchoco" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "덴마크 민트초코 우유",
+      "price" : "3500",
+      "detail_info" : "보기에는 진한 초코우유같지만, 맛은 박하사탕과 초코우유를 함께 먹는 느낌이다.",
+      "short_info" : "mint_milk",
+      "diet" :"중",
+      "calories" :"235"
+    }
+  ],
+
+  "milk_hersheys_original" :
+  [
+    {
+      "image" : "BINGLE BANGLE",
+      "name" : "허쉬 초콜릿드링 오리지널",
+      "price" : "3500",
+      "detail_info" : "맛은 일반적인 초코우유에 비해 좀 더 진하고 목넘김이 걸쭉하다.",
+      "short_info" : "choco_milk",
+      "diet" :"중",
+      "calories" :"160"
+    }
+  ],
+
+  "soju_chungha" :
+  [
+    {
+    "image" : "BINGLE BANGLE",
+    "name" : "매화수",
+    "price" : "3500",
+    "detail_info" : "매실을 이용한 과실주",
+    "short_info" : "soju",
+    "diet" :"하",
+    "calories" :"350kcal"
+
     }
   ]
+
 }

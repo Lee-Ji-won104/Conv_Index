@@ -2,4 +2,8 @@
 <resources>
     <dimen name="fragment_dialog_width">280dp</dimen>
     <dimen name="fragment_dialog_height">300dp</dimen>
+
+    <dimen name="tfe_bottom_sheet_corner_radius">15dp</dimen>
+    <dimen name="tfe_bottom_sheet_top_padding">8dp</dimen>
+
 </resources>

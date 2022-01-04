@@ -26,8 +26,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        //use thread
-        ArrayList<ProductClass> a= getProductList();
 
 
         Button button1 = (Button) findViewById(R.id.button) ;
@@ -35,7 +33,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent= new Intent(MainActivity.this, CameraActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
+
             }
         });
 
@@ -43,39 +43,13 @@ public class MainActivity extends AppCompatActivity {
         button2.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent(MainActivity.this, CameraActivityForBlind.class);
+                Intent intent= new Intent(MainActivity.this, CameraActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
             }
         });
     }
 
-    public ArrayList<ProductClass> getProductList() {
-        ArrayList<ProductClass> list_product = new ArrayList<>();
-        Gson gson = new Gson();
 
-        try {
-            InputStream is = getAssets().open("product.json");
-            byte[] buffer = new byte[is.available()];
-            is.read(buffer);
-            is.close();
-            String json = new String(buffer, "UTF-8");
-
-            JSONObject jsonObject = new JSONObject(json);
-            JSONArray jsonArray = jsonObject.getJSONArray("product");
-
-            int index = 0;
-            while (index < jsonArray.length()) {
-                ProductClass productInfo = gson.fromJson(jsonArray.get(index).toString(), ProductClass.class);
-                list_product.add(productInfo);
-
-                index++;
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return list_product;
-    }
 
 }
