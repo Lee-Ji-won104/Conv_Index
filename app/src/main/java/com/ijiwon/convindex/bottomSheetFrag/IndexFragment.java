@@ -13,18 +13,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ijiwon.convindex.CameraActivity;
+import com.ijiwon.convindex.MenuActivity;
 import com.ijiwon.convindex.R;
 
 
 public class IndexFragment extends Fragment {
 
-    CameraActivity activity;
+    MenuActivity activity;
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         //이 메소드가 호출될떄는 프래그먼트가 엑티비티위에 올라와있는거니깐 getActivity메소드로 엑티비티참조가능
-        activity = (CameraActivity) getActivity();
+        activity = (MenuActivity) getActivity();
 
     }
 

@@ -2,22 +2,19 @@ package com.ijiwon.convindex.bottomSheetFrag;
 
 import android.content.Context;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 import com.ijiwon.convindex.CameraActivity;
 import com.ijiwon.convindex.MenuActivity;
 import com.ijiwon.convindex.R;
 
-
-public class RecommendFragment extends Fragment {
+public class HomeFragment extends Fragment {
 
     MenuActivity activity;
 
@@ -40,13 +37,10 @@ public class RecommendFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+        View view=inflater.inflate(R.layout.fragment_home, container, false);
 
-
-        View view=inflater.inflate(R.layout.fragment_recommend, container, false);
-
-        TextView name= (TextView) view.findViewById(R.id.recommend1) ;
-        name.setText("recommend");
-
+        TextView name= (TextView) view.findViewById(R.id.cart1) ;
+        name.setText("cart");
 
         return view;
     }
