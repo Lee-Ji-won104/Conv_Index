@@ -78,7 +78,7 @@ public class CameraActivity extends AppCompatActivity {
         bottomSheetLayout = findViewById(R.id.bottom_sheet_layout);
         gestureLayout = findViewById(R.id.gesture_layout);
         sheetBehavior = BottomSheetBehavior.from(bottomSheetLayout);
-        bottomSheetArrowImageView = findViewById(R.id.bottom_sheet_arrow);
+        //bottomSheetArrowImageView = findViewById(R.id.bottom_sheet_arrow);
 
         ViewTreeObserver vto = gestureLayout.getViewTreeObserver();
         vto.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {

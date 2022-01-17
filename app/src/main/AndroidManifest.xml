@@ -14,16 +14,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ConvIndex">
         <activity
+            android:name=".bottomSheetFrag.AnalActivity"
+            android:exported="false" />
+        <activity
             android:name=".CameraActivityForBlind"
             android:exported="false" />
         <activity
             android:name=".CameraActivity"
             android:exported="false" />
-
         <activity
             android:name=".MenuActivity"
             android:exported="false" />
-
         <activity
             android:name=".MainActivity"
             android:exported="true">

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/price"
+                android:textAlignment="center"
+                android:layout_width="0px"
+                android:layout_weight="1"
+                android:layout_height="fill_parent"
+                android:textSize="45sp"
+                tools:ignore="RtlCompat" />
+
+            <TextView
+                android:id="@+id/name"
+                android:textAlignment="center"
+                android:layout_width="0px"
+                android:layout_weight="3"
+                android:layout_height="fill_parent"
+                android:textSize="45sp" />
+
+            <ImageButton
+                android:id="@+id/stars"
+                android:layout_width="0px"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:icon="@drawable/recommendation"
+                android:contentDescription="별모양 넣기" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/miniBitmap"
+                android:layout_gravity="center"
+                android:layout_width="150dp"
+                android:layout_height="150dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:orientation="vertical">
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <include
+        android:id="@+id/bottom_sheet_layout"
+        layout="@layout/tfe_od_layout_bottom_sheet" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

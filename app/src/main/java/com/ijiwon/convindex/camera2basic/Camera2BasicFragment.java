@@ -22,6 +22,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
@@ -54,6 +55,7 @@ import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -83,6 +85,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
+import com.ijiwon.convindex.bottomSheetFrag.AnalActivity;
 import com.ijiwon.convindex.deeputils.Classifier;
 import com.ijiwon.convindex.deeputils.TensorFlowImageClassifier;
 import com.ijiwon.convindex.tools.ProductClass;
@@ -270,6 +273,7 @@ public class Camera2BasicFragment extends Fragment
     private static final String LABEL_PATH = "labels.txt";
     private static final int INPUT_SIZE = 300;
 
+    boolean success=false;
 
     /**
      * This a callback object for the {@link ImageReader}. "onImageAvailable" will be called when a
@@ -385,18 +389,14 @@ public class Camera2BasicFragment extends Fragment
 
     };
 
-    /**
-     * Shows a {@link Toast} on the UI thread.
-     *
-     * @param text The message to show
-     */
-    private void showToast(final String text) {
+
+    private void showToast(final boolean success) {
         final Activity activity = getActivity();
         if (activity != null) {
             activity.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    Toast.makeText(activity, text, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity, Boolean.toString(success), Toast.LENGTH_SHORT).show();
                 }
             });
         }
@@ -756,7 +756,7 @@ public class Camera2BasicFragment extends Fragment
                         @Override
                         public void onConfigureFailed(
                                 @NonNull CameraCaptureSession cameraCaptureSession) {
-                            showToast("Failed");
+
                         }
                     }, null
             );
@@ -871,7 +871,6 @@ public class Camera2BasicFragment extends Fragment
                 public void onCaptureCompleted(@NonNull CameraCaptureSession session,
                                                @NonNull CaptureRequest request,
                                                @NonNull TotalCaptureResult result) {
-                    showToast("Saved: " + mFile);
                     Log.d(TAG, mFile.toString());
                     unlockFocus();
                 }
@@ -982,19 +981,35 @@ public class Camera2BasicFragment extends Fragment
                 //제품 어레이 갖고 오기
 
                 if(results.size()>0){
+                    success=true;
                     a= getProductList(afterPicture(results));
                 }
+                success=false;
 
             } finally {
                 mImage.close();
                 if (a!=null) {
 
-                    assert getFragmentManager() != null;
-                    getFragmentManager().beginTransaction().replace(R.id.home_ly,AnalyzingFragment.newInstance()).commit();
+                    /**
+                     * bottom sheet
+                     *
+                     */
+                    //MenuActivity.gestureLayout.getViewTreeObserver().removeOnGlobalLayoutListener((ViewTreeObserver.OnGlobalLayoutListener) this);
+                    //int height = MenuActivity.gestureLayout.getMeasuredHeight();
+                    //MenuActivity.sheetBehavior.setPeekHeight(height);
 
-                    //((MenuActivity)getActivity()).replaceFragment(AnalyzingFragment.newInstance());
+                    /**
+                     * analyzing fragment start
+                     */
+                    //assert getFragmentManager() != null;
+                    //getFragmentManager().beginTransaction().replace(R.id.home_ly,AnalyzingFragment.newInstance()).commit();
+
+                    Intent intent = new Intent(getActivity(), AnalActivity.class);
+                    startActivity(intent);
+
                 }
             }
+            showToast(success);
         }
 
     }

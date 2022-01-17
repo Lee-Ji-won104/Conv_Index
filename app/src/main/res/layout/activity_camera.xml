@@ -40,4 +40,54 @@
         layout="@layout/tfe_od_layout_bottom_sheet" />
 
 
+
+
+
+
+
+
+
+
+    <TextView
+        android:id="@+id/diet"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="45sp" />
+
+    <!-- TODO(b/112541284): 별모양으로 바꾸기 -->
+
+    <TextView
+        android:id="@+id/calories"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="45sp" />
+
+    <TextView
+        android:id="@+id/short_info"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="45sp" />
+
+
+    <TextView
+        android:id="@+id/detail_info"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25sp" />
+
+
+
+
+
+
+
+
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
