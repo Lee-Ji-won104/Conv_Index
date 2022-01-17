@@ -24,6 +24,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.ImageFormat;
 import android.graphics.Matrix;
 import android.graphics.Point;
@@ -60,19 +62,33 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
+import com.google.gson.Gson;
+import com.ijiwon.convindex.AnalyzingFragment;
+import com.ijiwon.convindex.MenuActivity;
 import com.ijiwon.convindex.R;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
+
+import com.ijiwon.convindex.deeputils.Classifier;
+import com.ijiwon.convindex.deeputils.TensorFlowImageClassifier;
+import com.ijiwon.convindex.tools.ProductClass;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class Camera2BasicFragment extends Fragment
         implements View.OnClickListener, ActivityCompat.OnRequestPermissionsResultCallback {
@@ -236,6 +252,24 @@ public class Camera2BasicFragment extends Fragment
      * This is the output file for our picture.
      */
     private File mFile;
+
+    /**
+     * This is the output file for bitmap.
+     */
+    public static ArrayList<ProductClass> a;
+
+    public static Bitmap dialog_bitmap=null;
+
+    /**
+     * This is for Tensorflow lite
+     *
+     */
+    Classifier classifier;
+    private static final String MODEL_PATH = "model.tflite";
+    private static final boolean QUANT = true;
+    private static final String LABEL_PATH = "labels.txt";
+    private static final int INPUT_SIZE = 300;
+
 
     /**
      * This a callback object for the {@link ImageReader}. "onImageAvailable" will be called when a
@@ -430,7 +464,6 @@ public class Camera2BasicFragment extends Fragment
     @Override
     public void onViewCreated(final View view, Bundle savedInstanceState) {
         view.findViewById(R.id.picture).setOnClickListener(this);
-        view.findViewById(R.id.info).setOnClickListener(this);
         mTextureView = (AutoFitTextureView) view.findViewById(R.id.texture);
     }
 
@@ -889,24 +922,8 @@ public class Camera2BasicFragment extends Fragment
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.picture: {
-                takePicture();
-                break;
-            }
-            case R.id.info: {
-                Activity activity = getActivity();
-                if (null != activity) {
-                    /*
-                    new AlertDialog.Builder(activity)
-                            .setMessage(R.string.intro_message)
-                            .setPositiveButton(android.R.string.ok, null)
-                            .show();
-
-                     */
-                }
-                break;
-            }
+        if (view.getId() == R.id.picture) {
+            takePicture();
         }
     }
 
@@ -920,7 +937,7 @@ public class Camera2BasicFragment extends Fragment
     /**
      * Saves a JPEG {@link Image} into the specified {@link File}.
      */
-    private static class ImageSaver implements Runnable {
+    private class ImageSaver implements Runnable {
 
         /**
          * The JPEG image
@@ -938,28 +955,114 @@ public class Camera2BasicFragment extends Fragment
 
         @Override
         public void run() {
+
+            //tensorflow lite
+            initTensorFlowAndLoadModel();
+
             ByteBuffer buffer = mImage.getPlanes()[0].getBuffer();
             byte[] bytes = new byte[buffer.remaining()];
             buffer.get(bytes);
-            FileOutputStream output = null;
+
+            Bitmap whatIsThis= BitmapFactory.decodeByteArray( bytes, 0, bytes.length );
+
+            whatIsThis=Bitmap.createScaledBitmap(whatIsThis, INPUT_SIZE, INPUT_SIZE, false);
+
+            //for rotate
+            Matrix matrix=new Matrix();
+            matrix.postRotate(90);
+
+            whatIsThis=Bitmap.createBitmap(whatIsThis,0,0,whatIsThis.getWidth(),whatIsThis.getHeight(),matrix,true);
+
+            dialog_bitmap=whatIsThis;
+
             try {
-                output = new FileOutputStream(mFile);
-                output.write(bytes);
-            } catch (IOException e) {
-                e.printStackTrace();
+
+                final List<Classifier.Recognition> results = classifier.recognizeImage(whatIsThis);
+
+                //제품 어레이 갖고 오기
+
+                if(results.size()>0){
+                    a= getProductList(afterPicture(results));
+                }
+
             } finally {
                 mImage.close();
-                if (null != output) {
-                    try {
-                        output.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                if (a!=null) {
+
+                    assert getFragmentManager() != null;
+                    getFragmentManager().beginTransaction().replace(R.id.home_ly,AnalyzingFragment.newInstance()).commit();
+
+                    //((MenuActivity)getActivity()).replaceFragment(AnalyzingFragment.newInstance());
                 }
             }
         }
 
     }
+
+
+    private void initTensorFlowAndLoadModel() {
+        Executor executor = Executors.newSingleThreadExecutor();
+        executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+
+                    classifier = TensorFlowImageClassifier.create(
+                            getActivity().getAssets(),
+                            MODEL_PATH,
+                            LABEL_PATH,
+                            INPUT_SIZE,
+                            QUANT);
+                } catch (final Exception e) {
+                    throw new RuntimeException("Error initializing TensorFlow!", e);
+                }
+            }
+        });
+    }
+
+    private String afterPicture(List<Classifier.Recognition> results){
+        float maxFloat=0;
+        Classifier.Recognition maxResult = null;
+
+        for (Classifier.Recognition result:results){
+            if(result.getConfidence()>maxFloat){
+                maxResult= result;
+            }
+        }
+
+        return maxResult.getTitle();
+    }
+
+
+    public ArrayList<ProductClass> getProductList(String product) {
+        ArrayList<ProductClass> list_product = new ArrayList<>();
+        Gson gson = new Gson();
+
+        try {
+            InputStream is = getActivity().getAssets().open("product.json");
+            byte[] buffer = new byte[is.available()];
+            is.read(buffer);
+            is.close();
+            String json = new String(buffer, "UTF-8");
+
+            JSONObject jsonObject = new JSONObject(json);
+            JSONArray jsonArray = jsonObject.getJSONArray(product);
+
+            int index = 0;
+            while (index < jsonArray.length()) {
+                ProductClass productInfo = gson.fromJson(jsonArray.get(index).toString(), ProductClass.class);
+                list_product.add(productInfo);
+
+                index++;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return list_product;
+    }
+
 
     /**
      * Compares two {@code Size}s based on their areas.

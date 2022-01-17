@@ -25,6 +25,7 @@ import android.widget.Toast;
 import com.camerakit.CameraKitView;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.gson.Gson;
+
 import com.ijiwon.convindex.bottomSheetFrag.CartFragment;
 import com.ijiwon.convindex.bottomSheetFrag.IndexFragment;
 import com.ijiwon.convindex.bottomSheetFrag.RecommendFragment;
@@ -62,11 +63,6 @@ public class CameraActivity extends AppCompatActivity {
 
     AnalyzingFragment analyzingFragment;
 
-    IndexFragment IndexFragment;
-    CartFragment CartFragment;
-    SettingFragment SettingFragment;
-    RecommendFragment RecommendFragment;
-
     //bottomSheet
     private LinearLayout bottomSheetLayout;
     private LinearLayout gestureLayout;
@@ -78,51 +74,6 @@ public class CameraActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
         cameraKitView=findViewById(R.id.camera);
-
-        /*
-        Display display = getWindowManager().getDefaultDisplay();  // in Activity
-
-        Point size = new Point();
-        display.getRealSize(size); // or getSize(size)
-        height = size.y*2/3;
-
-         */
-
-        Button buttonIndex = (Button) findViewById(R.id.Index) ;
-        buttonIndex.setOnClickListener(new Button.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                IndexFragment = new IndexFragment();
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, IndexFragment).commit();
-            }
-        });
-
-        Button buttonCart = (Button) findViewById(R.id.Cart) ;
-        buttonCart.setOnClickListener(new Button.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                CartFragment = new CartFragment();
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, CartFragment).commit();
-            }
-        });
-
-        Button buttonRecommend = (Button) findViewById(R.id.Recommend) ;
-        buttonRecommend.setOnClickListener(new Button.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                RecommendFragment = new RecommendFragment();
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, RecommendFragment).commit();
-            }
-        });
-
-        Button buttonSetting = (Button) findViewById(R.id.Setting) ;
-        buttonSetting.setOnClickListener(new Button.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                SettingFragment = new SettingFragment();
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, SettingFragment).commit();
-            }
-        });
 
         bottomSheetLayout = findViewById(R.id.bottom_sheet_layout);
         gestureLayout = findViewById(R.id.gesture_layout);
@@ -145,6 +96,8 @@ public class CameraActivity extends AppCompatActivity {
             }
         });
         sheetBehavior.setHideable(false);
+
+        sheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
 
         sheetBehavior.setBottomSheetCallback(
                 new BottomSheetBehavior.BottomSheetCallback() {
@@ -180,6 +133,7 @@ public class CameraActivity extends AppCompatActivity {
                     @Override
                     public void onSlide(@NonNull View bottomSheet, float slideOffset) {}
                 });
+
 
         Button buttonTensor = (Button) findViewById(R.id.buttonTensor) ;
         buttonTensor.setOnClickListener(new Button.OnClickListener() {
