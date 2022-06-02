@@ -75,6 +75,8 @@ public class CameraActivity extends AppCompatActivity {
         setContentView(R.layout.activity_camera);
         cameraKitView=findViewById(R.id.camera);
 
+        initTensorFlowAndLoadModel();
+
         bottomSheetLayout = findViewById(R.id.bottom_sheet_layout);
         gestureLayout = findViewById(R.id.gesture_layout);
         sheetBehavior = BottomSheetBehavior.from(bottomSheetLayout);
@@ -163,7 +165,7 @@ public class CameraActivity extends AppCompatActivity {
         });
 
         //tensorflow init()
-        initTensorFlowAndLoadModel();
+
     }
 
     @Override

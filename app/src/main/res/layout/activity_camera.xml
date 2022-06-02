@@ -39,15 +39,6 @@
         android:id="@+id/bottom_sheet_layout"
         layout="@layout/tfe_od_layout_bottom_sheet" />
 
-
-
-
-
-
-
-
-
-
     <TextView
         android:id="@+id/diet"
         android:layout_gravity="center"

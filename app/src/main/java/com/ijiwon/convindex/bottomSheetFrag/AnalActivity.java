@@ -33,12 +33,12 @@ public class AnalActivity extends AppCompatActivity {
         image.setImageBitmap(Camera2BasicFragment.dialog_bitmap);
 
         TextView name= (TextView) findViewById(R.id.name) ;
-        //name.setText(Camera2BasicFragment.a.get(0).getName());
+        name.setText(Camera2BasicFragment.a.get(0).getName());
 
         TextView price= (TextView) findViewById(R.id.price) ;
-        //price.setText(Camera2BasicFragment.a.get(0).getPrice());
+        price.setText(Camera2BasicFragment.a.get(0).getPrice());
 
-        /*
+
         TextView diet= (TextView) findViewById(R.id.diet) ;
         diet.setText(Camera2BasicFragment.a.get(0).getDiet());
 
@@ -51,8 +51,6 @@ public class AnalActivity extends AppCompatActivity {
         TextView detail_info= (TextView) findViewById(R.id.detail_info) ;
         detail_info.setText(Camera2BasicFragment.a.get(0).getDetail_info());
 
-
-         */
         //bottomSheetLayout
 
         bottomSheetLayout = findViewById(R.id.bottom_sheet_layout);

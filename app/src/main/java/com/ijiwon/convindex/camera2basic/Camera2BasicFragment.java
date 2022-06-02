@@ -984,7 +984,11 @@ public class Camera2BasicFragment extends Fragment
                     success=true;
                     a= getProductList(afterPicture(results));
                 }
-                success=false;
+                else {
+                    success=false;
+                    //TODO 잠시만 기다려달라고 하면서 다섯번정도 다시 시도해보기-- 아니면 사진을 변화시킨다거나
+
+                }
 
             } finally {
                 mImage.close();
@@ -1007,6 +1011,9 @@ public class Camera2BasicFragment extends Fragment
                     Intent intent = new Intent(getActivity(), AnalActivity.class);
                     startActivity(intent);
 
+                }
+                else{
+                    // 학습시킨 물건이 아니라고 예외처리
                 }
             }
             showToast(success);
